@@ -1,9 +1,4 @@
-﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace Autofac.ResolveNamed
 {
@@ -46,7 +41,6 @@ namespace Autofac.ResolveNamed
     {
         public Service1(IPrinter somePrinter)
         {
-
             somePrinter.Print();
         }
     }
@@ -82,18 +76,18 @@ namespace Autofac.ResolveNamed
 
         public void Print()
         {
-            rewriter.Do();
+            rewriter.Rewrite();
         }
     }
 
     public interface IRewriter
     {
-        void Do();
+        void Rewrite();
     }
 
     public class Rewriter : IRewriter
     {
-        public void Do()
+        public void Rewrite()
         {
             Console.WriteLine("Rewriter");
         }
@@ -101,7 +95,7 @@ namespace Autofac.ResolveNamed
 
     public class ImgRewriter : IRewriter
     {
-        public void Do()
+        public void Rewrite()
         {
             Console.WriteLine("ImgRewriter");
         }
